@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+          <div style="height: 10px;"></div>
+
+        <div class="content" style="padding: 20px 0px 20px 0px;">
+
+            <h1>{{ .Title }}</h1>
+
+                <div class="bottomjump" style="justify-content: flex-start;">
+                {{ range .Pages }}
+                        <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+                {{ end }}
+                </div>
+
+        </div>
+        {{- partial "footer.html" . -}}
+    </body>
+</html>

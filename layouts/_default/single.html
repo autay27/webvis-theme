@@ -1,0 +1,84 @@
+{{ define "main" }}
+
+{{ if eq (.Params.story | default true ) true }}
+
+  <div class="topjump">
+
+    <div class="topjump-child">
+      {{ if ne .NextInSection nil }}
+        {{ with .NextInSection }}
+        <a class="next" href="{{.Permalink}}">Previous</a>
+        {{ end }}
+
+        {{ if ne .PrevInSection nil }}
+         | 
+        {{ end }}  
+      {{ else }}
+        <div></div>
+      {{ end }}  
+      {{ if ne .PrevInSection nil }}
+        {{ with .PrevInSection }}
+          <a class="previous" href="{{.Permalink}}">Next</a>
+        {{ end }}
+      {{ else }}
+        <div></div>
+      {{ end }}  
+    </div>
+
+    <div class="topjump-child">
+      {{$posts := ($.Site.GetPage "/sweu/page").Pages}}
+      {{ range first 1 $posts }}
+        <a class="first" href="{{.Permalink}}">First</a> | 
+      {{ end }}
+      {{ range last 1 $posts }}
+        <a class="latest" href="{{.Permalink}}">Latest</a>
+      {{ end }}
+    </div>
+
+  </div>
+{{ else }}
+  <div style="height: 10px;"></div>
+{{ end }}
+
+<section class="content" id="main">
+
+  {{ .Content }}
+
+  {{ if eq (.Params.story | default true ) true }}
+    <div class="bottomjump">
+      {{ if ne .NextInSection nil }}
+        {{ with .NextInSection }}
+        <a class="next" href="{{.Permalink}}">Previous</a>
+        {{ end }}
+      {{ else }}
+        <div></div>
+      {{ end }}  
+      {{ if ne .PrevInSection nil }}
+        {{ with .PrevInSection }}
+          <a class="previous" href="{{.Permalink}}">Next</a>
+        {{ end }}
+      {{ else }}
+        <div></div>
+      {{ end }}  
+    </div>
+  {{ end }}
+
+</section>
+
+<aside class="discussion">
+
+    {{ if eq (.Params.story | default true ) true }}
+
+      <section>
+        <h4 id="date"> Posted {{ .Date.Format "Mon Jan 2, 2006" }}. </h4>
+        {{ .Description }}
+      </section>
+      <br>
+      {{ template "_internal/disqus.html" . }}
+      
+      {{ end }}
+
+
+
+</aside>
+{{ end }}

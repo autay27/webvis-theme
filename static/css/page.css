@@ -1,0 +1,236 @@
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: auto;
+    background-color: rgb(78, 76, 80);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    font: 16px arial, sans-serif;
+
+}
+
+.nav {
+    width: 100vw;
+    background-color: rgb(28, 28, 28);
+    color: rgb(139, 139, 139);
+    height: 17px;
+    padding: 3px 0px 0px 0px;
+    font: 12px verdana, sans-serif;
+    text-align: center;
+}
+
+.nav-link {
+    color: rgb(139, 139, 139);
+    text-decoration: none;
+}
+
+h1 {
+    font: 20px serif;
+    text-decoration: none;
+    margin: auto;
+}
+
+ul {
+    margin: 0px 0px 5px 0px;
+ }
+
+.content {
+    margin: 0px;
+    width: 100%;
+    max-width: 800px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 20px 0px;
+    gap: 20px;
+    background-color: rgb(164, 166, 174);
+    outline: 2px solid rgb(30,30,30);
+    box-shadow: 0 0 10px rgba(30,30,30,1);
+
+}
+
+p {
+    margin: 0px;
+}
+
+p > img {
+    margin: 0px;
+    max-width:100%;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+.narration {
+    margin: 0px 20px 0px 20px;
+    max-width: 740px;
+    padding: 15px;
+    border-radius: 2px;
+    background-color: rgb(215, 220, 235);
+    outline: 1px solid rgba(131, 131, 131, 0.5);
+
+    white-space: pre-line;
+}
+
+.dialogue {
+    width: min(600px, 100%);
+    gap: 10px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+}
+
+.dwrapl {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}
+.dwrapl > img {
+    max-width: min(150px, 40%);
+    height: auto;
+    max-height: 150px;
+    outline: 1px solid rgba(50,50,50, 0.5);
+    border-radius: 2px;
+}
+
+.dwrapr {
+    flex-direction: row-reverse;
+}
+
+.dtext {
+    min-width: min(420px, 100%);
+    padding: 10px;
+    border-radius: 2px;
+    background-color: rgb(215, 220, 235);
+    outline: 1px solid rgba(131, 131, 131, 0.5);
+    flex-grow: 1;
+    box-sizing: border-box;
+    white-space: pre-line;
+}
+
+@media (max-width: 580px) {
+    .dwrapl > img {
+        margin: 0px 10px;
+    }
+}
+
+.panel {
+    width: 100%;
+}
+
+.panel > img {
+    display: block;
+    max-width:100%;
+    width: auto;
+    height: auto;
+}
+
+.nopanel {
+    height: 0;
+}
+
+
+.topjump {
+    color: rgb(170,170,170);
+    min-width: min(800px, 100%);
+    margin: 0px;
+    padding: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing:border-box;
+
+    white-space: nowrap;
+    font: 12px verdana, sans-serif;
+
+}
+
+.topjump-child > a:link {
+    color: rgb(170,170,170);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  .topjump-child > a:visited {
+    color: rgb(170,170,170);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+.topjump-child > a:hover {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.bottomjump {
+    min-width: min(740px, 100%);
+    margin: auto;
+    padding: 25px 10px 20px 10px;
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    justify-content: space-between;
+    
+    box-sizing:border-box;
+    color: rgba(20, 20, 20);
+}
+
+.bottomjump > a {
+    border-radius: 2px;
+    background-color: rgb(215, 220, 235);
+    padding: 10px;
+    min-width: 10%;
+    text-align: center;
+    font: 16px arial, sans-serif;
+
+}
+
+.bottomjump > a:link {
+    color: rgb(20, 20, 20);
+    text-decoration: none;
+  }
+
+.bottomjump > a:visited {
+    color: rgb(20, 20, 20);
+    text-decoration: none;
+  }
+
+.bottomjump > a:hover {
+    color: black;
+    text-decoration: none;
+    box-shadow: 0px 0px 15px rgba(215, 220, 235, 1);
+}
+
+.discussion {
+    background-color: rgb(66, 66, 71);
+    margin: 50px 0px 0px 0px;
+    width: 100%;
+    padding: 25px 30px;
+    box-sizing: border-box;
+    height: 60vh;
+}
+
+.discussion > a {
+    color: rgb(31, 31, 31);
+}
+
+h4 {
+    font: 16px arial, sans-serif;
+    font-style: italic;
+    margin: 5px 0px;
+}
+
+.footer {
+    height: auto;
+    min-height: 17px;
+    margin-top: auto;
+}

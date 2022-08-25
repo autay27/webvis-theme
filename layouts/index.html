@@ -1,0 +1,11 @@
+{{ define "entirepage" }}
+
+{{$posts := ($.Site.GetPage "/sweu/page").Pages}}
+{{ range first 1 $posts }}
+  {{.Render}}
+{{ end }}
+
+
+{{ end }}
+
+

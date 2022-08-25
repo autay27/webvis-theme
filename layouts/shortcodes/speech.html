@@ -1,0 +1,14 @@
+
+{{if eq (index .Params 1) nil }}
+    <div class="dwrapl">
+{{ else }}
+    <div class="dwrapl dwrapr">
+{{ end }}
+    {{if ne (index .Params 0) nil }}
+        <img src="{{ index .Params 0 }}">
+    {{ end }}
+        <div class="dtext">
+            {{ .Inner }}
+        </div>
+    </div>
+
