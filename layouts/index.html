@@ -1,9 +1,17 @@
 {{ define "entirepage" }}
 
-{{$posts := ($.Site.GetPage "/sweu/page").Pages}}
-{{ range first 1 $posts }}
-  {{.Render}}
-{{ end }}
+  {{ if eq $Site.Params.ShowLatest true }}
+
+    {{$posts := ($.Site.GetPage "/$Site.Params.CurrentComic").Pages}}
+    {{ range first 1 $posts }}
+      {{.Render}}
+    {{ end }}
+
+  {{ else }}
+
+    {{ .Content }}
+
+  {{ end }}
 
 
 {{ end }}
