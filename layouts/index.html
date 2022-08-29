@@ -1,6 +1,6 @@
 {{ define "entirepage" }}
 
-{{$posts := ($.Site.GetPage "/sweu/page").Pages}}
+{{$posts := ($.Site.GetPage "/$Site.Params.CurrentComic").Pages}}
 {{ range first 1 $posts }}
   {{.Render}}
 {{ end }}
