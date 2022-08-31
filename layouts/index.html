@@ -1,8 +1,8 @@
 {{ define "entirepage" }}
 
-  {{ if eq $Site.Params.ShowLatest true }}
+  {{ if eq $.Site.Params.ShowLatest true }}
 
-    {{$posts := ($.Site.GetPage "/$Site.Params.CurrentComic").Pages}}
+    {{$posts := ($.Site.GetPage "/$.Site.Params.CurrentComic").Pages}}
     {{ range first 1 $posts }}
       {{.Render}}
     {{ end }}
