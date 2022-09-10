@@ -5,8 +5,6 @@ var myArgs = process.argv.slice(2).join(' ').split(/\s+/);
       console.log("Nothing to convert");
       break;
     default:
-      console.log("Converting file " + myArgs[0]);
-      console.log();
       console.log(convert(myArgs[0]));
   }
 
@@ -27,7 +25,7 @@ function convert(filename) {
   //expr says person:<any # spaces>dialogue<at least 1 newline>
   //pad 1 trailing newline in case we have to match last line
 
-  const speech = /([^:^\n^ ]*): *([^:^`]*)[\n ]+/g
+  const speech = /([^:^\n^ ]*): *([^:^`^@]*)[\n ]+/g
 
   const sc_speech = '\n{{< speech "/sweu/icon/$1.png" "$1" >}}$2{{< /speech >}}\n'
 
@@ -65,9 +63,13 @@ function convert(filename) {
 
   const image = /@([^ ^\n]*)/g
 
-  const md_image = "![$1](/sweu/icon/$1.png)"
+  const md_image = "![$1](/sweu/panel/$1.png)"
 
   contents = contents.replace(image, md_image)
+
+  //replace underscore with space in the panel alt text
+
+  //tbd
 
   return contents;
 }
