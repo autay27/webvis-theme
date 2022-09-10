@@ -89,15 +89,15 @@ p > img {
 .dwrapl {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 10px;
-}
-.dwrapl > img {
-    max-width: min(150px, 40%);
-    height: auto;
-    max-height: 150px;
+    column-gap: 0px;
+    
     outline: 1px solid rgba(50,50,50, 0.5);
     border-radius: 2px;
+    background-color: rgb(215, 220, 235);
+}
+.dwrapl > img {
+    width: 120px;
+    height: 120px;
 }
 
 .dwrapr {
@@ -105,20 +105,13 @@ p > img {
 }
 
 .dtext {
-    min-width: min(420px, 100%);
-    padding: 10px;
-    border-radius: 2px;
-    background-color: rgb(215, 220, 235);
-    outline: 1px solid rgba(131, 131, 131, 0.5);
+    max-width: 480px;
+    padding: 16px 10px 0px 10px;
     flex-grow: 1;
     box-sizing: border-box;
     white-space: pre-line;
-}
-
-@media (max-width: 580px) {
-    .dwrapl > img {
-        margin: 0px 10px;
-    }
+    
+    margin: auto;
 }
 
 .panel {
