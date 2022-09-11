@@ -1,18 +1,30 @@
 {{ define "entirepage" }}
 
-  {{ if eq $.Site.Params.ShowLatest true }}
 
-    {{$posts := ($.Site.GetPage "/$.Site.Params.CurrentComic").Pages}}
-    {{ range first 1 $posts }}
-      {{.Render}}
+
+  <!DOCTYPE html>
+  <html>
+      {{- partial "head.html" . -}}
+      <body>
+        {{- partial "header.html" . -}}
+    {{ if eq $.Site.Params.ShowLatest true }}
+
+      {{$posts := ($.Site.GetPage "/$.Site.Params.CurrentComic").Pages}}
+      {{ range first 1 $posts }}
+        {{.Render}}
+      {{ end }}
+
+    {{ else }}
+
+      {{ .Content }}
+
     {{ end }}
-
-  {{ else }}
-
-    {{ .Content }}
-
-  {{ end }}
-
+    {{- partial "footer.html" . -}}
+  </body>
+  </html>
 {{ end }}
+
+
+   
 
 

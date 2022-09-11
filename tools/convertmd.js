@@ -55,7 +55,7 @@ function convert(filename) {
 
   //add narration shortcode
 
-  const narration = /```([^`]*)```/g
+  const narration = /```([^`^@]*)```/g
 
   contents = contents.replace(narration, "{{<narration>}}$1{{</narration>}}")
 
@@ -70,6 +70,20 @@ function convert(filename) {
   //replace underscore with space in the panel alt text
 
   //tbd
+
+  //add typical hugo header
+
+  const timestamp= new Date().toISOString();
+
+  const hugoheader = 
+  '---\n\
+title: ""\n\
+date: ' + timestamp + '\n\
+draft: false\n\
+description: ""\n\
+---\n'
+
+  contents = hugoheader.concat(contents)
 
   return contents;
 }
