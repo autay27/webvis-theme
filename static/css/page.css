@@ -17,7 +17,7 @@ body {
     width: 100vw;
     background-color: rgb(28, 28, 28);
     color: rgb(139, 139, 139);
-    height: 17px;
+    min-height: 17px;
     padding: 3px 0px 0px 0px;
     font: 12px verdana, sans-serif;
     text-align: center;
@@ -132,8 +132,8 @@ p > img {
 
 .topjump {
     color: rgb(170,170,170);
-    min-width: min(800px, 100%);
-    margin: 0px;
+    max-width: min(800px, 100%);
+    margin: auto;
     padding: 5px 5px 5px 5px;
     display: flex;
     flex-direction: row;
@@ -225,6 +225,7 @@ h4 {
 #page-container {
     position: relative;
     min-height: 100vh;
+    width: 100%;
 }
 
 #not-footer {
