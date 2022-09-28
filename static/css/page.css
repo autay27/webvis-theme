@@ -39,7 +39,7 @@ ul {
  }
 
 .content {
-    margin: 0px;
+    margin: auto;
     width: 100%;
     max-width: 800px;
 
@@ -222,8 +222,17 @@ h4 {
     margin: 5px 0px;
 }
 
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#not-footer {
+    padding-bottom: 17px;
+}
+
 .footer {
-    height: auto;
-    min-height: 17px;
-    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    height: 17px;
 }

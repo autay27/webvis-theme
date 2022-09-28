@@ -8,6 +8,7 @@ var myArgs = process.argv.slice(2).join(' ').split(/\s+/);
       console.log(convert(myArgs[0]));
   }
 
+  //should put this in an entry field in the browser page version...
   var myFiles = "/projectname/"
 
 function convert(filename) {
@@ -27,7 +28,7 @@ function convert(filename) {
 
   const speech = /([^:^\n^ ]*): *([^:^`^@]*)[\n ]+/g
 
-  const sc_speech = '\n{{< speech "/sweu/icon/$1.png" "$1" >}}$2{{< /speech >}}\n'
+  const sc_speech = '\n{{< speech "/ugeu0/icon/$1.png" "$1" >}}$2{{< /speech >}}\n'
 
   contents = contents.concat("\n").replace(speech, sc_speech)
 
@@ -63,13 +64,15 @@ function convert(filename) {
 
   const image = /@([^ ^\n]*)/g
 
-  const md_image = "![$1](/sweu/panel/$1.png)"
+  const md_image = "![$1](/ugeu0/panel/$1.png)"
 
   contents = contents.replace(image, md_image)
 
   //replace underscore with space in the panel alt text
 
   //tbd
+
+  //add nopanel box if narration is first.. or something
 
   //add typical hugo header
 

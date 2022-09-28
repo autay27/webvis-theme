@@ -4,9 +4,13 @@
 <html>
     {{- partial "head.html" . -}}
     <body>
-        {{- partial "header.html" . -}}
+        <div id="page-container">
+        <div id="not-footer">
+            {{- partial "header.html" . -}}
             {{- block "main" . }}{{- end }}
+            </div>
         {{- partial "footer.html" . -}}
+        </div>
     </body>
 </html>
 {{- end }}
