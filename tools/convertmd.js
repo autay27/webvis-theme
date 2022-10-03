@@ -48,6 +48,12 @@ function convert(filename) {
 
   contents = contents.replace(dialogue, sc_dialogue)
 
+  //strip dialogue's leading whitespace
+  
+  const leading_dialogue = /[\n ]*\{\{< dialogue >\}\}/g
+
+  contents = contents.replace(leading_dialogue, "\n{{< dialogue >}}")
+
   //strip trailing/leading whitespace inside narration
 
   const leadtrail = /```[\n ]*([^\n^ ][^`]*[^\n^ ])[\n ]*```/g
