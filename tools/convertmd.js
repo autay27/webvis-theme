@@ -16,6 +16,17 @@ function convert(filename) {
   const fs = require('fs');
   let contents = fs.readFileSync('./'+filename, 'utf-8')
 
+  let title = filename.split("/")[filename.split("/").length-1].split(".").slice(0,-1).join("!")
+
+  //read in list of characters to display on the right
+  //note: I want to make it so that you can also make it appear in the right just once with a special character...
+  
+  var right = []
+  
+  if (contents.slice(0,7) == "//RIGHT") {
+    right = contents.substring(8, contents.indexOf('\n')).split(' ');
+    contents = contents.substring(contents.indexOf('\n'), contents.length)
+  } 
   //remove comments
 
   const comment = /\/\/.*\n/g
@@ -32,6 +43,15 @@ function convert(filename) {
 
   contents = contents.concat("\n").replace(speech, sc_speech)
 
+  //add right argument to the ones in the right list
+  
+  for(let name of right) {
+
+    const rs = new RegExp('("' + name + '.*")')
+
+    contents = contents.replace(new RegExp(rs.source, "g"), '$1 "right"')
+  }
+
   //change underscore to space in the alt text
   //use the replacement twice to catch speech icons with up to 3 words in the name - quick and dirty. Could repeat until fixpoint for unlimited length.
 
@@ -39,6 +59,13 @@ function convert(filename) {
 
   contents = contents.replace(alttxt, ' $1')
   contents = contents.replace(alttxt, ' $1')
+
+//I don't want to talk about it
+
+  const alttxt2 = /_([^"]*" "right" >)/g
+
+  contents = contents.replace(alttxt2, ' $1')
+  contents = contents.replace(alttxt2, ' $1')
 
   //wrap blocks of speech in dialogue shortcode
 
@@ -86,7 +113,7 @@ function convert(filename) {
 
   const hugoheader = 
   '---\n\
-title: ""\n\
+title: ' + title + '\n\
 date: ' + timestamp + '\n\
 draft: false\n\
 description: ""\n\
