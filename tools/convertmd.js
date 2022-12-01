@@ -109,6 +109,8 @@ function convert(filename) {
 
   //add typical hugo header
 
+  const firstPng = contents.match('/[^.]*\.png')[0].substring(1)
+
   const timestamp= new Date().toISOString();
 
   const hugoheader = 
@@ -117,6 +119,7 @@ title: ' + title + '\n\
 date: ' + timestamp + '\n\
 draft: false\n\
 description: ""\n\
+firstImage: "' + firstPng + '"\n\
 ---\n'
 
   contents = hugoheader.concat(contents)
